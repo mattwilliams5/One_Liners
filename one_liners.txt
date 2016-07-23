@@ -1,0 +1,7 @@
+top -b -n1 -u test 'Show Processes and memory for a user'
+find /proc/sys -type f | for line in $(cat -);do echo $line;cat $line;done  show all kernel parameter values
+awk /Hug.*Tot/{print } /proc/meminfo  Number of hugepages
+awk /Hug.*siz/{print } /proc/meminfo  Size of hugepages
+awk /Hug.*Fre/{print } /proc/meminfo  Available of hugepages
+ps -ef | awk NR { print } | sort -u   | wc -l  Count the unique users on system
+ps -ef | awk NR { print } | sort -u   | uniq -c Show how many processes each logon is running
